@@ -7,6 +7,19 @@
 #include <iostream>
 #include <Windows.h>
 using namespace std;
+int findMax(int* a, int n) {
+    int max = a[0];
+    int ind = 0;
+    for (int i = 1; i < n; i++) {
+        
+        if (a[i] > max) {
+            max = a[i];
+            ind = i;
+        }
+    }
+
+    return ind;
+}
 
 int main() {
     SetConsoleCP(1251);
@@ -33,17 +46,9 @@ int main() {
         }
 
         //код для номера максимального числа
-        int maxn = a[0], ind;
-        for (int i = 0; i < n; i++) {
-            if (maxn < a[i])
-            {
-                maxn = a[i];
-                ind = i;
-            }
-
-        }
-
+        int ind = findMax(a,n);
         cout << endl << "Найбільше число під номером - " << ind << endl;
+        
 
 
         
@@ -78,7 +83,6 @@ int main() {
         }
     }
 }
-
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
